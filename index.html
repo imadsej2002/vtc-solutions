@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- SEO Primary Meta Tags -->
+  <title>VTC Solutions | Gestión de Licencias VTC y Flotas en España</title>
+  <meta name="description" content="VTC Solutions ofrece consultoría especializada en gestión de licencias VTC, administración de flotas para terceros e inversores, y compraventa de licencias VTC en toda España. Experiencia, confianza y resultados." />
+  <meta name="keywords" content="licencias VTC, gestión flotas VTC, compraventa licencias VTC, consultoría VTC, licencias VTC España, inversores VTC, gestión licencias terceros" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="VTC Solutions" />
+  <link rel="canonical" href="https://www.vtcsolutions.es/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.vtcsolutions.es/" />
+  <meta property="og:title" content="VTC Solutions | Gestión de Licencias VTC y Flotas en España" />
+  <meta property="og:description" content="Consultoría especializada en gestión de licencias VTC, administración de flotas e inversión en licencias. Tu socio de confianza en el sector VTC." />
+  <meta property="og:image" content="01. Imagenes/LogoVTCSolutions.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="VTC Solutions | Gestión de Licencias VTC y Flotas" />
+  <meta name="twitter:description" content="Consultoría especializada en gestión de licencias VTC, administración de flotas e inversión en licencias." />
+  <meta name="twitter:image" content="01. Imagenes/LogoVTCSolutions.png" />
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "VTC Solutions",
+    "description": "Consultoría especializada en gestión de licencias VTC, administración de flotas para terceros e inversores, y compraventa de licencias VTC en España.",
+    "url": "https://www.vtcsolutions.es",
+    "logo": "https://www.vtcsolutions.es/01. Imagenes/LogoVTCSolutions.png",
+    "telephone": "+34673206090",
+    "email": "sejadvisory@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "ES"
+    },
+    "areaServed": "España",
+    "serviceType": ["Gestión de licencias VTC", "Gestión de flotas VTC", "Compraventa de licencias VTC"],
+    "sameAs": []
+  }
+  </script>
+
+  <style>
+    /* === RESET & BASE === */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --pink:       #FF2D6B;
+      --pink-light: #FF6B95;
+      --pink-dark:  #D4185A;
+      --lime:       #C8E03A;
+      --dark:       #111111;
+      --gray-dark:  #2C2C2C;
+      --gray-mid:   #6B6B6B;
+      --gray-light: #F5F5F5;
+      --white:      #FFFFFF;
+      --border:     #E8E8E8;
+      --font:       'Segoe UI', system-ui, -apple-system, sans-serif;
+      --max-w:      1140px;
+      --radius:     12px;
+      --transition: 0.25s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* === LAYOUT === */
+    .container {
+      width: 90%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 14px;
+    }
+
+    h2.section-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 18px;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--gray-mid);
+      max-width: 580px;
+    }
+
+    /* === NAVIGATION === */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+    }
+
+    .nav-brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--gray-dark);
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--pink);
+    }
+
+    .nav-cta {
+      background: var(--pink);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-size: 0.88rem !important;
+      font-weight: 600 !important;
+      transition: background var(--transition), transform var(--transition) !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--pink-dark) !important;
+      transform: translateY(-1px);
+      color: var(--white) !important;
+    }
+
+    /* Mobile nav toggle */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* === HERO === */
+    #hero {
+      padding: 110px 0 100px;
+      background: linear-gradient(135deg, #fff 0%, #fff3f7 40%, #fff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      left: -120px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(255,45,107,0.12) 0%, rgba(200,224,58,0.05) 55%, transparent 70%);
+      pointer-events: none;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -60px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(200,224,58,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,45,107,0.08);
+      border: 1px solid rgba(255,45,107,0.2);
+      color: var(--pink);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: var(--pink);
+      border-radius: 50%;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+
+    h1 span {
+      color: var(--pink);
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--gray-mid);
+      max-width: 500px;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--pink);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(255,45,107,0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--pink-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,45,107,0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--dark);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--pink);
+      color: var(--pink);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1;
+    }
+
+    .stat span {
+      font-size: 0.82rem;
+      color: var(--gray-mid);
+      margin-top: 4px;
+    }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 48px 40px;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.08);
+      border: 1px solid var(--border);
+      text-align: center;
+      max-width: 340px;
+      width: 100%;
+    }
+
+    .hero-card img {
+      width: 260px;
+      max-width: 100%;
+      margin: 0 auto 20px;
+    }
+
+    .hero-card-text {
+      font-size: 0.9rem;
+      color: var(--gray-mid);
+      line-height: 1.5;
+    }
+
+    .hero-card-services {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .hero-chip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gray-light);
+      border-radius: 8px;
+      padding: 9px 14px;
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--gray-dark);
+    }
+
+    .hero-chip-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--pink);
+      flex-shrink: 0;
+    }
+
+    /* === SERVICES === */
+    #servicios {
+      background: var(--gray-light);
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .services-header .section-sub {
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 36px 30px;
+      border: 1px solid var(--border);
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--pink), var(--lime));
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.09);
+      border-color: rgba(255,45,107,0.2);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(255,45,107,0.08);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      font-size: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--dark);
+    }
+
+    .service-card p {
+      font-size: 0.92rem;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+
+    .service-list {
+      list-style: none;
+      margin-top: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .service-list li {
+      font-size: 0.87rem;
+      color: var(--gray-dark);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .service-list li::before {
+      content: '→';
+      color: var(--pink);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* === WHY US === */
+    #nosotros {
+      background: var(--white);
+    }
+
+    .why-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .why-features {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-top: 36px;
+    }
+
+    .feature {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,45,107,0.08);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .feature-text h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--dark);
+    }
+
+    .feature-text p {
+      font-size: 0.9rem;
+      color: var(--gray-mid);
+      line-height: 1.6;
+    }
+
+    .why-visual {
+      position: relative;
+    }
+
+    .why-bg-card {
+      background: linear-gradient(145deg, #fff5f8, #fff);
+      border-radius: 24px;
+      padding: 48px 40px;
+      border: 1px solid rgba(255,45,107,0.15);
+      box-shadow: 0 20px 60px rgba(255,45,107,0.08);
+    }
+
+    .why-bg-card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--dark);
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 22px;
+    }
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--pink);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-text strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+      color: var(--dark);
+    }
+
+    .step-text span {
+      font-size: 0.87rem;
+      color: var(--gray-mid);
+    }
+
+    /* === TESTIMONIALS === */
+    #testimonios {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    #testimonios .section-label {
+      color: var(--lime);
+    }
+
+    #testimonios h2.section-title {
+      color: var(--white);
+    }
+
+    .testimonials-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .testimonials-header .section-sub {
+      color: rgba(255,255,255,0.6);
+      margin: 0 auto;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 30px;
+      transition: all var(--transition);
+    }
+
+    .testimonial-card:hover {
+      background: rgba(255,45,107,0.08);
+      border-color: rgba(255,45,107,0.3);
+    }
+
+    .stars {
+      color: var(--pink);
+      font-size: 1rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-card blockquote {
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--lime));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .author-info strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+
+    .author-info span {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* === FAQ === */
+    #faq {
+      background: var(--gray-light);
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .faq-header .section-sub {
+      margin: 0 auto;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      border: 1px solid var(--border);
+    }
+
+    .faq-item h4 {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .faq-item h4::before {
+      content: '?';
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      background: rgba(255,45,107,0.1);
+      color: var(--pink);
+      font-size: 0.78rem;
+      font-weight: 800;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .faq-item p {
+      font-size: 0.88rem;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+
+    /* === CONTACT === */
+    #contacto {
+      background: var(--white);
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .contact-info p {
+      font-size: 1rem;
+      color: var(--gray-mid);
+      line-height: 1.7;
+      margin-top: 16px;
+      margin-bottom: 36px;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 24px;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+
+    .contact-btn-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .contact-btn-content strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gray-mid);
+      margin-bottom: 2px;
+    }
+
+    .contact-btn-content span {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .btn-whatsapp {
+      background: #f0faf2;
+      border: 1.5px solid #c3e6cb;
+    }
+
+    .btn-whatsapp:hover {
+      background: #25D366;
+      border-color: #25D366;
+      transform: translateX(4px);
+    }
+
+    .btn-whatsapp:hover strong,
+    .btn-whatsapp:hover span {
+      color: var(--white);
+    }
+
+    .btn-whatsapp .contact-btn-icon {
+      background: #25D366;
+      color: var(--white);
+    }
+
+    .btn-whatsapp:hover .contact-btn-icon {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .btn-whatsapp .contact-btn-content span {
+      color: #1a7a3c;
+    }
+
+    .btn-email {
+      background: #fff5f8;
+      border: 1.5px solid rgba(255,45,107,0.2);
+    }
+
+    .btn-email:hover {
+      background: var(--pink);
+      border-color: var(--pink);
+      transform: translateX(4px);
+    }
+
+    .btn-email:hover strong,
+    .btn-email:hover span {
+      color: var(--white);
+    }
+
+    .btn-email .contact-btn-icon {
+      background: var(--pink);
+      color: var(--white);
+    }
+
+    .btn-email:hover .contact-btn-icon {
+      background: rgba(255,255,255,0.25);
+    }
+
+    .btn-email .contact-btn-content span {
+      color: var(--pink-dark);
+    }
+
+    .contact-note {
+      margin-top: 20px;
+      font-size: 0.83rem;
+      color: var(--gray-mid);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-right {
+      background: linear-gradient(145deg, #fff5f8, #fffdf0);
+      border-radius: 24px;
+      padding: 48px 40px;
+      border: 1px solid rgba(255,45,107,0.12);
+    }
+
+    .contact-right h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .contact-right p {
+      font-size: 0.9rem;
+      color: var(--gray-mid);
+      margin-bottom: 28px;
+    }
+
+    .contact-right-items {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-right-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .contact-right-item-icon {
+      font-size: 1.3rem;
+      width: 38px;
+      text-align: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contact-right-item-text strong {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .contact-right-item-text span {
+      font-size: 0.86rem;
+      color: var(--gray-mid);
+    }
+
+    /* === FOOTER === */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.55);
+      padding: 48px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-logo img {
+      height: 36px;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+    }
+
+    .footer-logo-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--pink);
+    }
+
+    .footer-copy {
+      font-size: 0.82rem;
+      text-align: right;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 960px) {
+      .hero-inner,
+      .why-inner,
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .hero-card {
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
+      .services-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 5%;
+        gap: 18px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .hero-stats {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-copy {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header>
+    <nav class="container" aria-label="Navegación principal">
+      <a class="nav-logo" href="#hero" aria-label="VTC Solutions - Inicio">
+        <span class="nav-brand">VTC Solutions</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contacto" class="nav-cta">Contactar</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ========== MAIN ========== -->
+  <main>
+
+    <!-- HERO -->
+    <section id="hero" aria-label="Introducción">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <div class="hero-badge">Especialistas en el sector VTC</div>
+            <h1>Tu negocio VTC,<br /><span>en manos expertas</span></h1>
+            <p class="hero-desc">
+              Gestión profesional de licencias y flotas VTC para terceros e inversores.
+              Asesoramiento en compraventa de licencias. Maximizamos la rentabilidad de tu inversión.
+            </p>
+            <div class="hero-actions">
+              <a href="https://wa.me/34673206090?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20vuestros%20servicios."
+                 class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+                📲 Hablar por WhatsApp
+              </a>
+              <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
+            </div>
+            <div class="hero-stats" aria-label="Estadísticas">
+              <div class="stat">
+                <strong>+50</strong>
+                <span>Licencias gestionadas</span>
+              </div>
+              <div class="stat">
+                <strong>+30</strong>
+                <span>Inversores satisfechos</span>
+              </div>
+              <div class="stat">
+                <strong>100%</strong>
+                <span>Transparencia</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-card">
+              <img src="01. Imagenes/LogoVTCSolutions.png" alt="VTC Solutions logo" width="260" />
+              <p class="hero-card-text">Gestión inteligente de tu activo VTC</p>
+              <div class="hero-card-services" aria-label="Servicios principales">
+                <div class="hero-chip"><span class="hero-chip-dot"></span>Gestión de licencias</div>
+                <div class="hero-chip"><span class="hero-chip-dot"></span>Gestión de flotas</div>
+                <div class="hero-chip"><span class="hero-chip-dot"></span>Compraventa de licencias</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="servicios" aria-label="Nuestros servicios">
+      <div class="container">
+        <div class="services-header">
+          <span class="section-label">Qué hacemos</span>
+          <h2 class="section-title">Servicios especializados en VTC</h2>
+          <p class="section-sub">Soluciones completas para propietarios de licencias, inversores y operadores de flotas en el sector VTC en España.</p>
+        </div>
+        <div class="services-grid">
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">📋</div>
+            <h3>Gestión de Licencias VTC</h3>
+            <p>Nos encargamos de toda la gestión administrativa y operativa de tu licencia VTC para que tú no tengas que preocuparte de nada.</p>
+            <ul class="service-list">
+              <li>Tramitación de documentación</li>
+              <li>Renovaciones y mantenimiento</li>
+              <li>Gestión de incidencias</li>
+              <li>Cumplimiento normativo</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">🚗</div>
+            <h3>Gestión de Flotas VTC</h3>
+            <p>Administramos flotas de vehículos VTC para terceros e inversores, optimizando rendimiento y rentabilidad.</p>
+            <ul class="service-list">
+              <li>Coordinación de conductores</li>
+              <li>Control de rentabilidad</li>
+              <li>Mantenimiento vehicular</li>
+              <li>Informes periódicos</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon" aria-hidden="true">💼</div>
+            <h3>Compraventa de Licencias</h3>
+            <p>Asesoramiento experto en la compra y venta de licencias VTC, garantizando el mejor precio y un proceso seguro.</p>
+            <ul class="service-list">
+              <li>Valoración de licencias</li>
+              <li>Búsqueda de compradores/vendedores</li>
+              <li>Acompañamiento legal</li>
+              <li>Cierre de operaciones</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="nosotros" aria-label="Por qué elegirnos">
+      <div class="container">
+        <div class="why-inner">
+          <div>
+            <span class="section-label">Por qué elegirnos</span>
+            <h2 class="section-title">Experiencia y confianza en cada operación</h2>
+            <p class="section-sub">En VTC Solutions combinamos el conocimiento del sector con un trato personalizado para cada cliente.</p>
+            <div class="why-features">
+              <div class="feature">
+                <div class="feature-icon" aria-hidden="true">🎯</div>
+                <div class="feature-text">
+                  <h4>Especialización total en VTC</h4>
+                  <p>No somos una gestoría genérica. Todo nuestro equipo y procesos están orientados exclusivamente al sector VTC.</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon" aria-hidden="true">📊</div>
+                <div class="feature-text">
+                  <h4>Transparencia y reporting</h4>
+                  <p>Recibirás informes regulares con toda la información sobre el rendimiento de tu licencia o flota.</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-icon" aria-hidden="true">🤝</div>
+                <div class="feature-text">
+                  <h4>Atención personalizada</h4>
+                  <p>Cada cliente tiene un gestor asignado disponible para resolver cualquier duda o incidencia.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="why-visual">
+            <div class="why-bg-card">
+              <p class="why-bg-card-title">¿Cómo trabajamos?</p>
+              <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-text">
+                  <strong>Consulta inicial gratuita</strong>
+                  <span>Analizamos tu situación y objetivos sin compromiso.</span>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-text">
+                  <strong>Propuesta personalizada</strong>
+                  <span>Diseñamos un plan a medida para tu licencia o flota.</span>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-text">
+                  <strong>Gestión y seguimiento</strong>
+                  <span>Nos encargamos de todo con total transparencia.</span>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-text">
+                  <strong>Resultados medibles</strong>
+                  <span>Informes periódicos para que controles tu inversión.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonios" aria-label="Opiniones de clientes">
+      <div class="container">
+        <div class="testimonials-header">
+          <span class="section-label">Testimonios</span>
+          <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+          <p class="section-sub">La confianza de inversores y propietarios que ya trabajan con nosotros.</p>
+        </div>
+        <div class="testimonials-grid">
+
+          <article class="testimonial-card">
+            <div class="stars" aria-label="5 estrellas">★★★★★</div>
+            <blockquote>"Delegué la gestión de mis dos licencias VTC y no podría estar más satisfecho. Rentabilidad mensual constante y sin preocupaciones."</blockquote>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">JM</div>
+              <div class="author-info">
+                <strong>José M.</strong>
+                <span>Inversor, Madrid</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="stars" aria-label="5 estrellas">★★★★★</div>
+            <blockquote>"Me ayudaron a vender mi licencia al mejor precio del mercado. El proceso fue rápido, seguro y totalmente transparente."</blockquote>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">AL</div>
+              <div class="author-info">
+                <strong>Ana L.</strong>
+                <span>Propietaria de licencia VTC</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="stars" aria-label="5 estrellas">★★★★★</div>
+            <blockquote>"Gracias a VTC Solutions pude comprar mi primera licencia con total seguridad. Su asesoramiento fue clave en la decisión."</blockquote>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">CR</div>
+              <div class="author-info">
+                <strong>Carlos R.</strong>
+                <span>Nuevo inversor VTC, Barcelona</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-label="Preguntas frecuentes">
+      <div class="container">
+        <div class="faq-header">
+          <span class="section-label">FAQ</span>
+          <h2 class="section-title">Preguntas frecuentes</h2>
+          <p class="section-sub">Resolvemos las dudas más comunes sobre licencias y gestión VTC.</p>
+        </div>
+        <div class="faq-grid">
+
+          <div class="faq-item">
+            <h4>¿Qué es una licencia VTC?</h4>
+            <p>Es la autorización administrativa que habilita a un vehículo para prestar servicios de transporte con conductor (Vehículo de Turismo con Conductor) en España.</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>¿Puedo tener una licencia VTC sin ser conductor?</h4>
+            <p>Sí. Puedes ser propietario de una licencia y delegar la operativa en una empresa gestora como VTC Solutions, recibiendo un rendimiento mensual.</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>¿Cuánto se puede rentabilizar una licencia VTC?</h4>
+            <p>La rentabilidad varía según la ciudad y el mercado, pero con una gestión profesional se pueden obtener retornos interesantes de forma recurrente.</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>¿Cómo funciona la compraventa de licencias?</h4>
+            <p>Analizamos el mercado, valoramos la licencia y acompañamos todo el proceso legal y administrativo para garantizar una transacción segura para ambas partes.</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>¿En qué ciudades operáis?</h4>
+            <p>Operamos en todo el territorio español, con especial presencia en Madrid, Barcelona y otras grandes capitales con alta demanda de servicios VTC.</p>
+          </div>
+
+          <div class="faq-item">
+            <h4>¿La consulta inicial tiene algún coste?</h4>
+            <p>No. La primera consulta es totalmente gratuita y sin compromiso. Escríbenos y te explicamos todo lo que necesitas saber.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contacto" aria-label="Contacto">
+      <div class="container">
+        <div class="contact-inner">
+          <div class="contact-info">
+            <span class="section-label">Contacto</span>
+            <h2 class="section-title">¿Hablamos?</h2>
+            <p>Cuéntanos tu situación y te ofrecemos una consulta gratuita sin compromiso. Estamos disponibles para resolver cualquier duda sobre licencias, flotas o inversión en el sector VTC.</p>
+            <div class="contact-buttons">
+
+              <a href="https://wa.me/34673206090?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20vuestros%20servicios."
+                 class="contact-btn btn-whatsapp"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="Contactar por WhatsApp al +34 673 206 090">
+                <div class="contact-btn-icon" aria-hidden="true">💬</div>
+                <div class="contact-btn-content">
+                  <strong>WhatsApp</strong>
+                  <span>+34 673 206 090</span>
+                </div>
+              </a>
+
+              <a href="mailto:sejadvisory@gmail.com?subject=Consulta%20VTC%20Solutions"
+                 class="contact-btn btn-email"
+                 aria-label="Enviar email a sejadvisory@gmail.com">
+                <div class="contact-btn-icon" aria-hidden="true">✉️</div>
+                <div class="contact-btn-content">
+                  <strong>Email</strong>
+                  <span>sejadvisory@gmail.com</span>
+                </div>
+              </a>
+
+            </div>
+            <p class="contact-note">⏱ Tiempo de respuesta habitual: menos de 24 horas</p>
+          </div>
+          <div class="contact-right">
+            <h3>¿Por qué contactarnos?</h3>
+            <p>Somos expertos en el sector VTC y estamos aquí para ayudarte.</p>
+            <div class="contact-right-items">
+              <div class="contact-right-item">
+                <div class="contact-right-item-icon" aria-hidden="true">💡</div>
+                <div class="contact-right-item-text">
+                  <strong>Consulta gratuita</strong>
+                  <span>Sin compromiso. Te explicamos todo lo que necesitas saber sobre licencias VTC.</span>
+                </div>
+              </div>
+              <div class="contact-right-item">
+                <div class="contact-right-item-icon" aria-hidden="true">🔒</div>
+                <div class="contact-right-item-text">
+                  <strong>Confidencialidad total</strong>
+                  <span>Toda la información que nos facilites se trata con máxima discreción.</span>
+                </div>
+              </div>
+              <div class="contact-right-item">
+                <div class="contact-right-item-icon" aria-hidden="true">⚡</div>
+                <div class="contact-right-item-text">
+                  <strong>Respuesta rápida</strong>
+                  <span>Te contactamos en menos de 24 horas con una propuesta personalizada.</span>
+                </div>
+              </div>
+              <div class="contact-right-item">
+                <div class="contact-right-item-icon" aria-hidden="true">🇪🇸</div>
+                <div class="contact-right-item-text">
+                  <strong>Cobertura nacional</strong>
+                  <span>Operamos en toda España. Independientemente de tu ciudad, podemos ayudarte.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <img src="01. Imagenes/LogoVTCSolutions.png" alt="VTC Solutions" width="36" height="36" />
+          <span class="footer-logo-text">VTC Solutions</span>
+        </div>
+        <ul class="footer-links" aria-label="Enlaces del pie de página">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <p class="footer-copy">
+          &copy; 2025 VTC Solutions · Todos los derechos reservados
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile nav toggle script -->
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    // Close menu on link click (mobile)
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+      });
+    });
+  </script>
+
+</body>
+</html>
