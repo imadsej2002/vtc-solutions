@@ -130,6 +130,109 @@
     }
 
 
+    /* === TUBELIGHT NAV === */
+    #tubelightNav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 200;
+    }
+
+    @media (max-width: 640px) {
+      #tubelightNav {
+        top: auto;
+        bottom: 20px;
+      }
+    }
+
+    .tl-inner {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(0,0,0,0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 4px;
+      border-radius: 50px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+      position: relative;
+      overflow: visible;
+    }
+
+    /* Moving background pill */
+    .tl-bg {
+      position: absolute;
+      top: 4px;
+      height: calc(100% - 8px);
+      background: rgba(255,45,107,0.08);
+      border-radius: 50px;
+      pointer-events: none;
+      overflow: visible;
+      transition: left 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  width 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Lamp bar (sticks above nav) */
+    .tl-bg::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 4px;
+      background: var(--pink);
+      border-radius: 2px 2px 0 0;
+    }
+
+    /* Lamp glow */
+    .tl-bg::after {
+      content: '';
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 64px;
+      height: 32px;
+      background: radial-gradient(ellipse at 50% 100%, rgba(255,45,107,0.45) 0%, transparent 70%);
+      filter: blur(4px);
+    }
+
+    .tl-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: rgba(17,17,17,0.5);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+      z-index: 1;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .tl-item:hover { color: var(--pink); }
+    .tl-item.active { color: var(--pink); }
+
+    .tl-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      stroke: currentColor;
+    }
+
+    @media (min-width: 641px) { .tl-icon { display: none; } }
+    @media (max-width: 640px) {
+      .tl-text { display: none; }
+      .tl-item { padding: 10px 16px; }
+    }
+
     /* === HERO GRADIENT ANIMATION === */
     @keyframes moveVertical {
       0%   { transform: translateY(-50%); }
@@ -1161,6 +1264,44 @@
 </head>
 <body>
 
+  <!-- ========== TUBELIGHT NAV ========== -->
+  <header id="tubelightNav" role="banner">
+    <nav class="tl-inner" aria-label="Navegación principal">
+
+      <!-- Moving background + lamp effect -->
+      <div class="tl-bg" id="tlBg"></div>
+
+      <a href="#servicios" class="tl-item active" data-section="servicios">
+        <svg class="tl-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/>
+        </svg>
+        <span class="tl-text">Servicios</span>
+      </a>
+
+      <a href="#nosotros" class="tl-item" data-section="nosotros">
+        <svg class="tl-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+        <span class="tl-text">Nosotros</span>
+      </a>
+
+      <a href="#faq" class="tl-item" data-section="faq">
+        <svg class="tl-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r=".5" fill="currentColor"/>
+        </svg>
+        <span class="tl-text">FAQ</span>
+      </a>
+
+      <a href="#contacto" class="tl-item" data-section="contacto">
+        <svg class="tl-icon" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span class="tl-text">Contacto</span>
+      </a>
+
+    </nav>
+  </header>
+
   <!-- ========== MAIN ========== -->
   <main>
 
@@ -1501,6 +1642,64 @@
       </div>
     </div>
   </footer>
+
+  <!-- Tubelight nav -->
+  <script>
+    (function () {
+      var items  = Array.from(document.querySelectorAll('.tl-item'));
+      var bg     = document.getElementById('tlBg');
+      var inner  = document.querySelector('.tl-inner');
+      if (!items.length || !bg || !inner) return;
+
+      function moveBg(item) {
+        var navRect  = inner.getBoundingClientRect();
+        var itemRect = item.getBoundingClientRect();
+        bg.style.left  = (itemRect.left - navRect.left - 4) + 'px';
+        bg.style.width = itemRect.width + 'px';
+      }
+
+      function setActive(item) {
+        items.forEach(function (i) { i.classList.remove('active'); });
+        item.classList.add('active');
+        moveBg(item);
+      }
+
+      // Click: set active immediately
+      items.forEach(function (item) {
+        item.addEventListener('click', function () { setActive(this); });
+      });
+
+      // Initial position (no transition on load)
+      bg.style.transition = 'none';
+      requestAnimationFrame(function () {
+        moveBg(document.querySelector('.tl-item.active') || items[0]);
+        requestAnimationFrame(function () {
+          bg.style.transition = '';
+        });
+      });
+
+      // Scroll: highlight section in view
+      var sections = items.map(function (item) {
+        return document.getElementById(item.dataset.section);
+      });
+
+      window.addEventListener('scroll', function () {
+        var mid = window.scrollY + window.innerHeight / 3;
+        var current = 0;
+        sections.forEach(function (el, i) {
+          if (el && el.offsetTop <= mid) current = i;
+        });
+        if (!items[current].classList.contains('active')) {
+          setActive(items[current]);
+        }
+      }, { passive: true });
+
+      // Reposition on resize
+      window.addEventListener('resize', function () {
+        moveBg(document.querySelector('.tl-item.active') || items[0]);
+      });
+    })();
+  </script>
 
   <!-- Why Us card stack -->
   <script>
