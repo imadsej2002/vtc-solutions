@@ -746,58 +746,151 @@
       position: relative;
     }
 
-    .why-bg-card {
-      background: linear-gradient(145deg, #fff5f8, #fff);
-      border-radius: 24px;
-      padding: 48px 40px;
-      border: 1px solid rgba(255,45,107,0.15);
-      box-shadow: 0 20px 60px rgba(255,45,107,0.08);
+    /* === WHY CARD STACK === */
+    .wstack-wrapper {
+      position: relative;
+      padding-bottom: 44px;
     }
 
-    .why-bg-card-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: var(--dark);
+    .wstack {
+      position: relative;
+      height: 230px;
+      width: 100%;
     }
 
-    .step {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      margin-bottom: 22px;
+    .wcard {
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      padding: 32px 36px;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity   0.55s cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 0.55s ease;
+      will-change: transform, opacity;
+      overflow: hidden;
     }
 
-    .step:last-child {
-      margin-bottom: 0;
+    .wcard::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--pink), var(--lime));
+      border-radius: 20px 0 0 20px;
     }
 
-    .step-number {
+    .wcard[data-pos="0"] {
+      transform: translateY(0) scale(1);
+      z-index: 4;
+      box-shadow: 0 20px 60px rgba(255,45,107,0.12);
+      opacity: 1;
+    }
+    .wcard[data-pos="1"] {
+      transform: translateY(14px) scale(0.95);
+      z-index: 3;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      opacity: 0.7;
+    }
+    .wcard[data-pos="2"] {
+      transform: translateY(26px) scale(0.90);
+      z-index: 2;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      opacity: 0.45;
+    }
+    .wcard[data-pos="3"] {
+      transform: translateY(38px) scale(0.85);
+      z-index: 1;
+      box-shadow: none;
+      opacity: 0.25;
+    }
+
+    .wcard.wcard-exit {
+      transform: translateY(-80px) scale(0.95) !important;
+      opacity: 0 !important;
+      pointer-events: none;
+    }
+
+    .wcard-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: 34px;
       height: 34px;
       border-radius: 50%;
       background: var(--pink);
       color: var(--white);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .wcard h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .wcard p {
+      font-size: 0.88rem;
+      color: var(--gray-mid);
+      line-height: 1.65;
+    }
+
+    .wstack-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 58px;
+      padding: 0 4px;
+    }
+
+    .wstack-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .wstack-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+    }
+
+    .wstack-dot.active {
+      background: var(--pink);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    .wstack-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .step-text strong {
-      display: block;
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-bottom: 3px;
-      color: var(--dark);
-    }
-
-    .step-text span {
-      font-size: 0.87rem;
+      font-size: 1rem;
       color: var(--gray-mid);
+      transition: all 0.2s ease;
     }
+
+    .wstack-btn:hover {
+      border-color: var(--pink);
+      color: var(--pink);
+      transform: scale(1.08);
+    }
+
 
     /* === FAQ === */
     #faq {
@@ -1352,36 +1445,47 @@
             </div>
           </div>
           <div class="why-visual">
-            <div class="why-bg-card">
-              <p class="why-bg-card-title">¿Cómo trabajamos?</p>
-              <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-text">
-                  <strong>Consulta inicial gratuita</strong>
-                  <span>Analizamos tu situación y objetivos sin compromiso.</span>
+            <div class="wstack-wrapper">
+
+              <div class="wstack" id="whyStack">
+
+                <div class="wcard" data-pos="0">
+                  <div class="wcard-num">1</div>
+                  <h3>Consulta inicial gratuita</h3>
+                  <p>Analizamos tu situación y objetivos sin compromiso para encontrar la mejor solución para tu licencia o flota.</p>
                 </div>
-              </div>
-              <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-text">
-                  <strong>Propuesta personalizada</strong>
-                  <span>Diseñamos un plan a medida para tu licencia o flota.</span>
+
+                <div class="wcard" data-pos="1">
+                  <div class="wcard-num">2</div>
+                  <h3>Propuesta personalizada</h3>
+                  <p>Diseñamos un plan a medida con objetivos claros y plazos definidos adaptados a tu perfil de inversión.</p>
                 </div>
-              </div>
-              <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-text">
-                  <strong>Gestión y seguimiento</strong>
-                  <span>Nos encargamos de todo con total transparencia.</span>
+
+                <div class="wcard" data-pos="2">
+                  <div class="wcard-num">3</div>
+                  <h3>Gestión y seguimiento</h3>
+                  <p>Nos encargamos de todo con total transparencia, manteniéndote informado en cada paso del proceso.</p>
                 </div>
-              </div>
-              <div class="step">
-                <div class="step-number">4</div>
-                <div class="step-text">
-                  <strong>Resultados medibles</strong>
-                  <span>Informes periódicos para que controles tu inversión.</span>
+
+                <div class="wcard" data-pos="3">
+                  <div class="wcard-num">4</div>
+                  <h3>Resultados medibles</h3>
+                  <p>Informes periódicos detallados para que controles el rendimiento de tu inversión en todo momento.</p>
                 </div>
+
               </div>
+
+              <div class="wstack-controls">
+                <button class="wstack-btn" id="wstackPrev" aria-label="Tarjeta anterior">←</button>
+                <div class="wstack-dots" id="wstackDots">
+                  <button class="wstack-dot active" data-idx="0" aria-label="Paso 1"></button>
+                  <button class="wstack-dot" data-idx="1" aria-label="Paso 2"></button>
+                  <button class="wstack-dot" data-idx="2" aria-label="Paso 3"></button>
+                  <button class="wstack-dot" data-idx="3" aria-label="Paso 4"></button>
+                </div>
+                <button class="wstack-btn" id="wstackNext" aria-label="Siguiente tarjeta">→</button>
+              </div>
+
             </div>
           </div>
         </div>
@@ -1542,6 +1646,72 @@
         toggle.setAttribute('aria-expanded', false);
       });
     });
+  </script>
+
+  <!-- Why Us card stack -->
+  <script>
+    (function () {
+      var stack = document.getElementById('whyStack');
+      if (!stack) return;
+
+      var cards   = Array.from(stack.querySelectorAll('.wcard'));
+      var dots    = Array.from(document.querySelectorAll('#wstackDots .wstack-dot'));
+      var total   = cards.length;
+      var current = 0;
+      var animating = false;
+      var timer;
+
+      function updatePositions() {
+        cards.forEach(function (card, i) {
+          var pos = ((i - current) + total) % total;
+          card.setAttribute('data-pos', Math.min(pos, total - 1));
+        });
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('active', i === current);
+        });
+      }
+
+      function advance(dir) {
+        if (animating) return;
+        animating = true;
+
+        if (dir > 0) {
+          var exitCard = cards[current];
+          exitCard.classList.add('wcard-exit');
+          setTimeout(function () {
+            exitCard.classList.remove('wcard-exit');
+            current = (current + 1) % total;
+            updatePositions();
+            animating = false;
+          }, 480);
+        } else {
+          current = (current - 1 + total) % total;
+          updatePositions();
+          animating = false;
+        }
+        resetTimer();
+      }
+
+      function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(function () { advance(1); }, 4000);
+      }
+
+      document.getElementById('wstackNext').addEventListener('click', function () { advance(1); });
+      document.getElementById('wstackPrev').addEventListener('click', function () { advance(-1); });
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () {
+          if (i !== current && !animating) {
+            current = i;
+            updatePositions();
+            resetTimer();
+          }
+        });
+      });
+
+      resetTimer();
+    })();
   </script>
 
   <!-- Magnetize button particles -->
