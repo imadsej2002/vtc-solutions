@@ -217,34 +217,98 @@
       transition: var(--transition);
     }
 
+    /* === HERO GRADIENT ANIMATION === */
+    @keyframes moveVertical {
+      0%   { transform: translateY(-50%); }
+      50%  { transform: translateY(50%); }
+      100% { transform: translateY(-50%); }
+    }
+
+    @keyframes moveInCircle {
+      0%   { transform: rotate(0deg); }
+      50%  { transform: rotate(180deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes moveHorizontal {
+      0%   { transform: translateX(-50%) translateY(-10%); }
+      50%  { transform: translateX(50%) translateY(10%); }
+      100% { transform: translateX(-50%) translateY(-10%); }
+    }
+
     /* === HERO === */
     #hero {
       padding: 110px 0 100px;
-      background: linear-gradient(135deg, #fff 0%, #fff3f7 40%, #fff 100%);
+      background: #ffffff;
       position: relative;
       overflow: hidden;
     }
 
-    #hero::before {
-      content: '';
-      position: absolute;
-      top: -120px;
-      left: -120px;
-      width: 480px;
-      height: 480px;
-      background: radial-gradient(circle, rgba(255,45,107,0.12) 0%, rgba(200,224,58,0.05) 55%, transparent 70%);
-      pointer-events: none;
+    #hero > .container {
+      position: relative;
+      z-index: 1;
     }
 
-    #hero::after {
-      content: '';
+    .hero-svg-filter { display: none; }
+
+    .hero-blobs {
       position: absolute;
-      bottom: -80px;
-      right: -60px;
-      width: 360px;
-      height: 360px;
-      background: radial-gradient(circle, rgba(200,224,58,0.1) 0%, transparent 65%);
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      filter: url(#heroGoo) blur(40px);
       pointer-events: none;
+      z-index: 0;
+    }
+
+    .hblob {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      top: 10%;
+      left: 10%;
+      mix-blend-mode: multiply;
+    }
+
+    .hblob-1 {
+      background: radial-gradient(circle at center, rgba(255,45,107,0.55) 0%, transparent 50%) no-repeat center;
+      transform-origin: center center;
+      animation: moveVertical 30s ease infinite;
+    }
+
+    .hblob-2 {
+      background: radial-gradient(circle at center, rgba(200,224,58,0.45) 0%, transparent 50%) no-repeat center;
+      transform-origin: calc(50% - 400px) center;
+      animation: moveInCircle 20s reverse infinite;
+    }
+
+    .hblob-3 {
+      background: radial-gradient(circle at center, rgba(255,107,149,0.4) 0%, transparent 50%) no-repeat center;
+      transform-origin: calc(50% + 400px) center;
+      animation: moveInCircle 40s linear infinite;
+    }
+
+    .hblob-4 {
+      background: radial-gradient(circle at center, rgba(212,24,90,0.35) 0%, transparent 50%) no-repeat center;
+      transform-origin: calc(50% - 200px) center;
+      animation: moveHorizontal 40s ease infinite;
+      opacity: 0.7;
+    }
+
+    .hblob-5 {
+      background: radial-gradient(circle at center, rgba(180,200,30,0.4) 0%, transparent 50%) no-repeat center;
+      transform-origin: calc(50% - 800px) calc(50% + 800px);
+      animation: moveInCircle 20s ease infinite;
+    }
+
+    .hblob-ptr {
+      background: radial-gradient(circle at center, rgba(255,45,107,0.3) 0%, transparent 50%) no-repeat center;
+      mix-blend-mode: multiply;
+      width: 100%;
+      height: 100%;
+      top: -50%;
+      left: -50%;
+      opacity: 0.7;
     }
 
     .hero-inner {
@@ -1194,6 +1258,30 @@
 
     <!-- HERO -->
     <section id="hero" aria-label="Introducción">
+
+      <!-- SVG goo filter (hidden) -->
+      <svg class="hero-svg-filter" aria-hidden="true">
+        <defs>
+          <filter id="heroGoo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feColorMatrix in="blur" mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+              result="goo" />
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
+
+      <!-- Animated gradient blobs -->
+      <div class="hero-blobs" aria-hidden="true">
+        <div class="hblob hblob-1"></div>
+        <div class="hblob hblob-2"></div>
+        <div class="hblob hblob-3"></div>
+        <div class="hblob hblob-4"></div>
+        <div class="hblob hblob-5"></div>
+        <div class="hblob hblob-ptr" id="heroBlobPointer"></div>
+      </div>
+
       <div class="container">
         <div class="hero-inner">
           <div class="hero-content">
@@ -1561,6 +1649,33 @@
         toggle.setAttribute('aria-expanded', false);
       });
     });
+  </script>
+
+  <!-- Hero gradient pointer tracking -->
+  <script>
+    (function () {
+      var pointer = document.getElementById('heroBlobPointer');
+      var hero    = document.getElementById('hero');
+      if (!pointer || !hero) return;
+
+      var curX = 0, curY = 0, tgX = 0, tgY = 0;
+
+      hero.addEventListener('mousemove', function (e) {
+        var rect = hero.getBoundingClientRect();
+        tgX = e.clientX - rect.left - rect.width  / 2;
+        tgY = e.clientY - rect.top  - rect.height / 2;
+      });
+
+      function tick() {
+        curX += (tgX - curX) / 20;
+        curY += (tgY - curY) / 20;
+        pointer.style.transform =
+          'translate(' + Math.round(curX) + 'px, ' + Math.round(curY) + 'px)';
+        requestAnimationFrame(tick);
+      }
+
+      tick();
+    })();
   </script>
 
 </body>
