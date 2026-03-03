@@ -425,105 +425,170 @@
       flex-shrink: 0;
     }
 
-    /* === SERVICES === */
+    /* === SERVICES — Stacked Cards === */
     #servicios {
       background: var(--gray-light);
-    }
-
-    .services-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .services-header .section-sub {
-      margin: 0 auto;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    .service-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 36px 30px;
-      border: 1px solid var(--border);
-      transition: all var(--transition);
-      position: relative;
       overflow: hidden;
     }
 
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--pink), var(--lime));
-      opacity: 0;
-      transition: opacity var(--transition);
-    }
-
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.09);
-      border-color: rgba(255,45,107,0.2);
-    }
-
-    .service-card:hover::before {
-      opacity: 1;
-    }
-
-    .service-icon {
-      width: 52px;
-      height: 52px;
-      background: rgba(255,45,107,0.08);
-      border-radius: 14px;
-      display: flex;
+    .services-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
       align-items: center;
-      justify-content: center;
-      margin-bottom: 22px;
-      font-size: 1.5rem;
     }
 
-    .service-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--dark);
+    .services-text .section-title {
+      margin-top: 12px;
+      margin-bottom: 16px;
     }
 
-    .service-card p {
-      font-size: 0.92rem;
-      color: var(--gray-mid);
-      line-height: 1.65;
+    .services-text .section-sub {
+      margin-bottom: 32px;
     }
 
-    .service-list {
-      list-style: none;
-      margin-top: 18px;
+    /* Stack wrapper */
+    .services-stack {
+      display: grid;
+      grid-template-areas: 'stack';
+      place-items: center;
+      padding: 30px 100px 90px 20px;
+    }
+
+    /* Base card */
+    .service-card-stacked {
+      grid-area: stack;
+      position: relative;
+      width: 22rem;
+      height: 9rem;
+      border-radius: 16px;
+      border: 2px solid var(--border);
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(6px);
+      padding: 18px 20px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      justify-content: space-between;
+      transition: all 0.7s ease;
+      transform: skewY(-8deg);
+      user-select: none;
+      cursor: default;
     }
 
-    .service-list li {
-      font-size: 0.87rem;
-      color: var(--gray-dark);
+    /* Right-side fade gradient (depth illusion) */
+    .service-card-stacked::after {
+      content: '';
+      position: absolute;
+      right: -2px;
+      top: -5%;
+      height: 110%;
+      width: 16rem;
+      background: linear-gradient(to left, #F5F5F5, transparent);
+      pointer-events: none;
+      border-radius: 0 14px 14px 0;
+    }
+
+    /* Grayscale overlay for back cards */
+    .service-card-stacked::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      background: rgba(245,245,245,0.55);
+      transition: opacity 0.7s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .service-card-stacked:hover {
+      border-color: rgba(255,45,107,0.25);
+      background: rgba(255,255,255,0.98);
+    }
+
+    /* Card inner elements */
+    .sc-top {
       display: flex;
-      align-items: flex-start;
-      gap: 8px;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      z-index: 2;
     }
 
-    .service-list li::before {
-      content: '→';
-      color: var(--pink);
-      font-weight: 700;
+    .sc-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,45,107,0.12);
+      font-size: 1rem;
       flex-shrink: 0;
-      margin-top: 1px;
+    }
+
+    .sc-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--pink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sc-desc {
+      font-size: 0.875rem;
+      color: var(--dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sc-tag {
+      font-size: 0.78rem;
+      color: var(--gray-mid);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Card 1 — back */
+    .sc-1 {
+      filter: grayscale(100%);
+      z-index: 1;
+    }
+
+    .sc-1:hover {
+      filter: grayscale(0%);
+      transform: skewY(-8deg) translateY(-2.5rem);
+    }
+
+    .sc-1:hover::before { opacity: 0; }
+
+    /* Card 2 — middle */
+    .sc-2 {
+      transform: skewY(-8deg) translate(4rem, 2.5rem);
+      filter: grayscale(100%);
+      z-index: 2;
+    }
+
+    .sc-2:hover {
+      filter: grayscale(0%);
+      transform: skewY(-8deg) translate(4rem, 1.5rem);
+    }
+
+    .sc-2:hover::before { opacity: 0; }
+
+    /* Card 3 — front (no overlay, full color) */
+    .sc-3 {
+      transform: skewY(-8deg) translate(8rem, 5rem);
+      z-index: 3;
+    }
+
+    .sc-3::before { display: none; }
+
+    .sc-3:hover {
+      transform: skewY(-8deg) translate(8rem, 6.5rem);
     }
 
     /* === WHY US === */
@@ -1035,7 +1100,17 @@
         margin: 0 auto;
       }
 
-      .services-grid,
+      .services-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .services-stack {
+        padding: 20px 20px 80px 20px;
+        transform: scale(0.85);
+        transform-origin: top center;
+      }
+
       .testimonials-grid {
         grid-template-columns: 1fr;
       }
@@ -1168,49 +1243,47 @@
     <!-- SERVICES -->
     <section id="servicios" aria-label="Nuestros servicios">
       <div class="container">
-        <div class="services-header">
-          <span class="section-label">Qué hacemos</span>
-          <h2 class="section-title">Servicios especializados en VTC</h2>
-          <p class="section-sub">Soluciones completas para propietarios de licencias, inversores y operadores de flotas en el sector VTC en España.</p>
-        </div>
-        <div class="services-grid">
+        <div class="services-layout">
 
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">📋</div>
-            <h3>Gestión de Licencias VTC</h3>
-            <p>Nos encargamos de toda la gestión administrativa y operativa de tu licencia VTC para que tú no tengas que preocuparte de nada.</p>
-            <ul class="service-list">
-              <li>Tramitación de documentación</li>
-              <li>Renovaciones y mantenimiento</li>
-              <li>Gestión de incidencias</li>
-              <li>Cumplimiento normativo</li>
-            </ul>
-          </article>
+          <!-- Text column -->
+          <div class="services-text">
+            <span class="section-label">Qué hacemos</span>
+            <h2 class="section-title">Servicios especializados en VTC</h2>
+            <p class="section-sub">Soluciones completas para propietarios de licencias, inversores y operadores de flotas en el sector VTC en España.</p>
+            <a href="#contacto" class="btn btn-primary">Consulta gratuita</a>
+          </div>
 
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">🚗</div>
-            <h3>Gestión de Flotas VTC</h3>
-            <p>Administramos flotas de vehículos VTC para terceros e inversores, optimizando rendimiento y rentabilidad.</p>
-            <ul class="service-list">
-              <li>Coordinación de conductores</li>
-              <li>Control de rentabilidad</li>
-              <li>Mantenimiento vehicular</li>
-              <li>Informes periódicos</li>
-            </ul>
-          </article>
+          <!-- Stacked cards column -->
+          <div class="services-stack" aria-label="Nuestros servicios">
 
-          <article class="service-card">
-            <div class="service-icon" aria-hidden="true">💼</div>
-            <h3>Compraventa de Licencias</h3>
-            <p>Asesoramiento experto en la compra y venta de licencias VTC, garantizando el mejor precio y un proceso seguro.</p>
-            <ul class="service-list">
-              <li>Valoración de licencias</li>
-              <li>Búsqueda de compradores/vendedores</li>
-              <li>Acompañamiento legal</li>
-              <li>Cierre de operaciones</li>
-            </ul>
-          </article>
+            <div class="service-card-stacked sc-1">
+              <div class="sc-top">
+                <span class="sc-badge" aria-hidden="true">📋</span>
+                <span class="sc-title">Gestión de Licencias VTC</span>
+              </div>
+              <p class="sc-desc">Tramitación, renovaciones y cumplimiento normativo</p>
+              <p class="sc-tag">Servicio principal</p>
+            </div>
 
+            <div class="service-card-stacked sc-2">
+              <div class="sc-top">
+                <span class="sc-badge" aria-hidden="true">🚗</span>
+                <span class="sc-title">Gestión de Flotas VTC</span>
+              </div>
+              <p class="sc-desc">Coordinación de conductores y control de rentabilidad</p>
+              <p class="sc-tag">Para inversores</p>
+            </div>
+
+            <div class="service-card-stacked sc-3">
+              <div class="sc-top">
+                <span class="sc-badge" aria-hidden="true">💼</span>
+                <span class="sc-title">Compraventa de Licencias</span>
+              </div>
+              <p class="sc-desc">Valoración, intermediación y cierre seguro</p>
+              <p class="sc-tag">Máxima rentabilidad</p>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
