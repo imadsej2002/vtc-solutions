@@ -383,6 +383,42 @@
       cursor: pointer;
       transition: all var(--transition);
       white-space: nowrap;
+      position: relative;
+      overflow: visible;
+    }
+
+    /* === MAGNETIZE PARTICLES === */
+    .btn-particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      left: calc(50% - 3px);
+      top: calc(50% - 3px);
+      pointer-events: none;
+      opacity: 0.35;
+      will-change: transform, opacity;
+      transform: translate(var(--px, 0px), var(--py, 0px));
+      transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1),
+                  opacity 0.3s ease;
+    }
+
+    .btn-primary .btn-particle { background: rgba(255,255,255,0.9); }
+    .btn-secondary .btn-particle { background: var(--pink); }
+
+    .btn.is-attracting .btn-particle {
+      transform: translate(0, 0);
+      opacity: 1;
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  opacity 0.3s ease;
+    }
+
+    .btn-label {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .btn-primary {
@@ -1506,6 +1542,40 @@
         toggle.setAttribute('aria-expanded', false);
       });
     });
+  </script>
+
+  <!-- Magnetize button particles -->
+  <script>
+    (function () {
+      var COUNT = 12;
+
+      document.querySelectorAll('.btn-primary, .btn-secondary').forEach(function (btn) {
+        // Wrap existing content so it stays above particles (z-index: 1)
+        var label = document.createElement('span');
+        label.className = 'btn-label';
+        while (btn.firstChild) { label.appendChild(btn.firstChild); }
+        btn.appendChild(label);
+
+        // Distribute particles evenly in an ellipse around the button
+        for (var i = 0; i < COUNT; i++) {
+          var p   = document.createElement('span');
+          p.className = 'btn-particle';
+          var angle = (i / COUNT) * Math.PI * 2;
+          var rx = 80 + Math.random() * 60;
+          var ry = 38 + Math.random() * 28;
+          var x  = Math.cos(angle) * rx + (Math.random() * 20 - 10);
+          var y  = Math.sin(angle) * ry + (Math.random() * 12 - 6);
+          p.style.setProperty('--px', Math.round(x) + 'px');
+          p.style.setProperty('--py', Math.round(y) + 'px');
+          btn.insertBefore(p, label);
+        }
+
+        btn.addEventListener('mouseenter', function () { btn.classList.add('is-attracting'); });
+        btn.addEventListener('mouseleave', function () { btn.classList.remove('is-attracting'); });
+        btn.addEventListener('touchstart', function () { btn.classList.add('is-attracting'); }, { passive: true });
+        btn.addEventListener('touchend',   function () { btn.classList.remove('is-attracting'); });
+      });
+    })();
   </script>
 
   <!-- Hero gradient pointer tracking -->
