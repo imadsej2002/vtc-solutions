@@ -763,95 +763,6 @@
       color: var(--gray-mid);
     }
 
-    /* === TESTIMONIALS === */
-    #testimonios {
-      background: var(--dark);
-      color: var(--white);
-    }
-
-    #testimonios .section-label {
-      color: var(--lime);
-    }
-
-    #testimonios h2.section-title {
-      color: var(--white);
-    }
-
-    .testimonials-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-
-    .testimonials-header .section-sub {
-      color: rgba(255,255,255,0.6);
-      margin: 0 auto;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .testimonial-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius);
-      padding: 30px;
-      transition: all var(--transition);
-    }
-
-    .testimonial-card:hover {
-      background: rgba(255,45,107,0.08);
-      border-color: rgba(255,45,107,0.3);
-    }
-
-    .stars {
-      color: var(--pink);
-      font-size: 1rem;
-      letter-spacing: 2px;
-      margin-bottom: 16px;
-    }
-
-    .testimonial-card blockquote {
-      font-size: 0.93rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.8);
-      margin-bottom: 20px;
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .author-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--pink), var(--lime));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.85rem;
-      color: var(--white);
-      flex-shrink: 0;
-    }
-
-    .author-info strong {
-      display: block;
-      font-size: 0.9rem;
-      color: var(--white);
-    }
-
-    .author-info span {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.5);
-    }
-
     /* === FAQ === */
     #faq {
       background: var(--gray-light);
@@ -1175,9 +1086,6 @@
         transform-origin: top center;
       }
 
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-      }
 
       .faq-grid {
         grid-template-columns: 1fr;
@@ -1243,7 +1151,6 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#testimonios">Testimonios</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contacto" class="nav-cta">Contactar</a></li>
       </ul>
@@ -1441,56 +1348,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section id="testimonios" aria-label="Opiniones de clientes">
-      <div class="container">
-        <div class="testimonials-header">
-          <span class="section-label">Testimonios</span>
-          <h2 class="section-title">Lo que dicen nuestros clientes</h2>
-          <p class="section-sub">La confianza de inversores y propietarios que ya trabajan con nosotros.</p>
-        </div>
-        <div class="testimonials-grid">
-
-          <article class="testimonial-card">
-            <div class="stars" aria-label="5 estrellas">★★★★★</div>
-            <blockquote>"Delegué la gestión de mis dos licencias VTC y no podría estar más satisfecho. Rentabilidad mensual constante y sin preocupaciones."</blockquote>
-            <div class="testimonial-author">
-              <div class="author-avatar" aria-hidden="true">JM</div>
-              <div class="author-info">
-                <strong>José M.</strong>
-                <span>Inversor, Madrid</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="testimonial-card">
-            <div class="stars" aria-label="5 estrellas">★★★★★</div>
-            <blockquote>"Me ayudaron a vender mi licencia al mejor precio del mercado. El proceso fue rápido, seguro y totalmente transparente."</blockquote>
-            <div class="testimonial-author">
-              <div class="author-avatar" aria-hidden="true">AL</div>
-              <div class="author-info">
-                <strong>Ana L.</strong>
-                <span>Propietaria de licencia VTC</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="testimonial-card">
-            <div class="stars" aria-label="5 estrellas">★★★★★</div>
-            <blockquote>"Gracias a VTC Solutions pude comprar mi primera licencia con total seguridad. Su asesoramiento fue clave en la decisión."</blockquote>
-            <div class="testimonial-author">
-              <div class="author-avatar" aria-hidden="true">CR</div>
-              <div class="author-info">
-                <strong>Carlos R.</strong>
-                <span>Nuevo inversor VTC, Barcelona</span>
-              </div>
-            </div>
-          </article>
-
         </div>
       </div>
     </section>
